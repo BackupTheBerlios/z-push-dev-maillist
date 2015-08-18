@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] z-push and open backends (caldav, openldap)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20z-push%20and%20open%20backends%20%28caldav%2C%20openldap%29&In-Reply-To=%3C4BF69C1A.7070805%40libertech.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] z-push and open backends (caldav, openldap)</H1>
+    <B>Alain Abbas</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20z-push%20and%20open%20backends%20%28caldav%2C%20openldap%29&In-Reply-To=%3C4BF69C1A.7070805%40libertech.fr%3E"
+       TITLE="[Z-Push-dev] z-push and open backends (caldav, openldap)">alain.abbas at libertech.fr
+       </A><BR>
+    <I>Fri May 21 16:43:38 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[Z-Push-dev] z-push and open backends (caldav, openldap)
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[Z-Push-dev] z-push and open backends (caldav, openldap)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi all
+
+the Kolab backend is for Kolab groupware , each groupware has his 
+solution or need a backend 
+developping  another backend is not our priority.
+
+if you want to have the code this is the right url for the repositionny 
+but i dont think that it help you a lot
+for a caldav backend.
+
+<A HREF="http://kolabzpush.svn.sourceforge.net/viewvc/kolabzpush/trunk/Kolab_Zpush">http://kolabzpush.svn.sourceforge.net/viewvc/kolabzpush/trunk/Kolab_Zpush</A>
+but if you want to start a backend you must have somethings :
+- a good code for a caldav and groupdav client protocol.
+- have an method to see what is changed on the server
+and after you must have a class derived from diffBackend
+and rewrite the methods who manage the datas
+
+Alain Abbas
+regards
+
+
+Jelle de Jong a &#233;crit :
+&gt;<i> Hi Georg,
+</I>&gt;<i>
+</I>&gt;<i> Nice to see you active here.
+</I>&gt;<i>
+</I>&gt;<i> Georg C. F. Greve wrote, on 21-05-10 15:55:
+</I>&gt;&gt;<i> Something like this is already happening with the Kolab backend that 
+</I>&gt;&gt;<i> Alain
+</I>&gt;&gt;<i> Abbas is currently working on.
+</I>&gt;<i>
+</I>&gt;<i> I checkout the svn and the trunk/backend/kolab (witch is empty). I 
+</I>&gt;<i> would be intreseted in an universal openldap and caldav backend. Is 
+</I>&gt;<i> this something kolab is developing? With documentation and examples?
+</I>&gt;<i>
+</I>&gt;<i> I can ask Michiel Leenaars for additional funding to get universal 
+</I>&gt;<i> backends working.
+</I>&gt;<i>
+</I>&gt;<i> When would it be possible to test the openldap backend? (read and 
+</I>&gt;<i> write) Will it have a ldap scheme conversion configuration file?
+</I>&gt;<i>
+</I>&gt;<i> I have a flexible OpenLDAP contact book and a DAViCal and Darwin 
+</I>&gt;<i> Calendar caldav server for testing. I can make them public availiable 
+</I>&gt;<i> for this project if necessary?
+</I>&gt;<i>
+</I>&gt;<i> I also have good contacts with a smart freelance developer that owns a 
+</I>&gt;<i> N900, he may be able to help debug the N900, if you are willing to 
+</I>&gt;<i> free some funding (bounty) for this?
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i>
+</I>&gt;<i> Jelle
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Z-push-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">Z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">https://lists.berlios.de/mailman/listinfo/z-push-dev</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[Z-Push-dev] z-push and open backends (caldav, openldap)
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[Z-Push-dev] z-push and open backends (caldav, openldap)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

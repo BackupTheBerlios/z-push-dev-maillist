@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] Kolab/Z-push and iPhone issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Kolab/Z-push%20and%20iPhone%20issues&In-Reply-To=%3C4F3A3CD0.9010603%40libertech.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000114.html">
+   <LINK REL="Next"  HREF="000116.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] Kolab/Z-push and iPhone issues</H1>
+    <B>Alain Abbas</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Kolab/Z-push%20and%20iPhone%20issues&In-Reply-To=%3C4F3A3CD0.9010603%40libertech.fr%3E"
+       TITLE="[Z-Push-dev] Kolab/Z-push and iPhone issues">alain.abbas at libertech.fr
+       </A><BR>
+    <I>Tue Feb 14 11:52:00 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000114.html">[Z-Push-dev] Kolab/Z-push and iPhone issues
+</A></li>
+        <LI>Next message: <A HREF="000116.html">[Z-Push-dev] Kolab/Z-push and iPhone issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Greg
+see my comments
+i think you will have more responses on <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">users at kolab.org</A> list
+
+Alain Abbas
+Regards
+
+Greg Conway a &#233;crit :
+&gt;<i>
+</I>&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I am running z-push on a Kolab 2.3.4 server (using Horde), and am 
+</I>&gt;<i> experiencing various issues using Z-push and iPhones (IOS5). I thought 
+</I>&gt;<i> I would ask some basic questions here first off, to determine whether 
+</I>&gt;<i> these problems exist for other z-push users, or just for me (and my 
+</I>&gt;<i> Kolab server!)
+</I>&gt;<i>
+</I>&gt;<i> 1/ all calendar events that are created within Horde (on Kolab server) 
+</I>&gt;<i> that then sync to the iPhone are in timezone Europe/Berlin. I am in 
+</I>&gt;<i> Europe/London, and the server is set to Europe/London (with UTC 
+</I>&gt;<i> enabled or disabled, I get the same results). Events that are created 
+</I>&gt;<i> on the iPhone are set in what appears to be the correct timezone 
+</I>&gt;<i> (London), but after editing them in Horde they change to timezone Berlin.
+</I>&gt;<i>
+</I>&gt;<i> I did find php.ini was hard-coded to Europe/Berlin, but after amending 
+</I>&gt;<i> this the timezone problem remains - although this did correct the 
+</I>&gt;<i> problem of my php logs being one hour out! I also found my debug.txt 
+</I>&gt;<i> log was one hour out. Within z-push config.php I added a line to set 
+</I>&gt;<i> the default timezone to Europe/London, and this corrected my zpush 
+</I>&gt;<i> logs. Sadly neither of these fixes resolved the calendar timezone 
+</I>&gt;<i> problems.
+</I>&gt;<i>
+</I>The datas are sent to the iphone in Utc
+things that you can check :
+1) the setting of your iphone ( the timezone setting)
+2) The system timezone. The events are converted from XML to activesync 
+via the Kolab::Format Library. i don t remember that php.ini variable is 
+used.
+3) the debug.txt time is the local system time. seems that your OS is 
+not in the good timezone. (you can check in /kolab/var/apache/log witch 
+time you have)
+&gt;<i>
+</I>&gt;<i> 2/ If I create or edit all day events within Horde, when they sync 
+</I>&gt;<i> down to the iPhone they lose the &quot;all day&quot; flag.
+</I>&gt;<i>
+</I>&gt;<i> This has the effect that all day events do not sit in the top of the 
+</I>&gt;<i> calendar &#8211; instead they occupy the entire day on the iPhone calendar.
+</I>&gt;<i>
+</I>&gt;<i> Initially all such events were also one hour out, causing them to run 
+</I>&gt;<i> from/to 23:00 spread over two days (which I've read is a common 
+</I>&gt;<i> problem with Outlook) but after modifying php.ini/config.php they at 
+</I>&gt;<i> least now run from 00:00 to 00:00 when looking at the calendar view. 
+</I>&gt;<i> However - if I display an event on the iPhone it then says it runs 
+</I>&gt;<i> from 1:00 to 1:00, with timezone Berlin again!
+</I>&gt;<i>
+</I>Seems the same problem than below
+&gt;<i>
+</I>&gt;<i> 3/ Then, beyond the timezone issues, I have issues accepting meeting 
+</I>&gt;<i> requests on the iPhone itself. I am unable to accept meeting requests 
+</I>&gt;<i> in most cases, and when a confirmation button appears and I managed to 
+</I>&gt;<i> add the event to my calendar, the usual emails are not sent, etc. The 
+</I>&gt;<i> appointments work fine on using Thunderbird, Horde, Outlook, etc.
+</I>&gt;<i>
+</I>Not tested , for me it can t work for the moment
+&gt;<i>
+</I>&gt;<i> I initially dismissed this as the client on the iPhone (as all other 
+</I>&gt;<i> clients seem to work), and was prepared to start looking for a more 
+</I>&gt;<i> comprehensive Email client, when one of our users pointed out the 
+</I>&gt;<i> functionality works fine on the iPhone with the iCloud calendars.
+</I>&gt;<i>
+</I>&gt;<i> Does anybody else have these issues, or are these old issues that have 
+</I>&gt;<i> been released with the latest version of z-push?
+</I>&gt;<i>
+</I>&gt;<i> I appreciate that it does sound like my timezone is one hour out, but 
+</I>&gt;<i> it&#8217;s definitely correct. Horde is also set to the correct time zone, 
+</I>&gt;<i> and Emails come through correctly. Maybe there&#8217;s somewhere else I&#8217;ve 
+</I>&gt;<i> overlooked that I could look for an incorrect timezone setting?
+</I>&gt;<i>
+</I>&gt;<i> Thanks for any help!
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Greg Conway.
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Z-push-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">Z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">https://lists.berlios.de/mailman/listinfo/z-push-dev</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: alain_abbas.vcf
+Type: text/x-vcard
+Size: 168 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20120214/145a0868/attachment.vcf">https://lists.berlios.de/pipermail/z-push-dev/attachments/20120214/145a0868/attachment.vcf</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000114.html">[Z-Push-dev] Kolab/Z-push and iPhone issues
+</A></li>
+	<LI>Next message: <A HREF="000116.html">[Z-Push-dev] Kolab/Z-push and iPhone issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

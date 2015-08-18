@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] Lot's of connections to the server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-September/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Lot%27s%20of%20connections%20to%20the%20server&In-Reply-To=%3C1284544482.4c9097e245790%40intermesh.group-office.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] Lot's of connections to the server</H1>
+    <B>Merijn Schering (Intermesh)</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Lot%27s%20of%20connections%20to%20the%20server&In-Reply-To=%3C1284544482.4c9097e245790%40intermesh.group-office.com%3E"
+       TITLE="[Z-Push-dev] Lot's of connections to the server">mschering at intermesh.nl
+       </A><BR>
+    <I>Wed Sep 15 11:54:42 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[Z-Push-dev] Lot's of connections to the server
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[Z-Push-dev] Lot's of connections to the server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>To make the PHP script is never executed I moved the debugLog message
+to the top of index.php and start logging on top and after each
+include. Now I must wait for &quot;zombie&quot; processes to appear and see if
+the PID is logged.
+
+Op Woensdag, 15-09-2010 om 10:23 schreef Merijn Schering (Intermesh):
+
+Hi Andreas,
+
+There's no proxy server involved. The server is a virtual machine on
+Xen connected directly to the internet. I have two customers having
+the exact same problem Using Debian 5.
+
+Here's a snippet of the current status:
+
+11-038230/26/40W 0.481139900.00.130.15
+188.188.******group-office.euPOST
+/Microsoft-Server-ActiveSync?User=Arno&amp;DeviceId=Appl83835M
+12-0198480/8/1087W 0.52262000.00.0117.99
+188.188******.group-office.euPOST
+/Microsoft-Server-ActiveSync?User=Arno&amp;DeviceId=Appl83835M
+13-0250510/1/1174W 0.0831700.00.005.19
+79.175.******group-office.euPOST /json.php HTTP/1.1 14-072961/18/381K
+1.958370.00.061.91 125.34.******group-office.euPOST
+/modules/summary/json.php HTTP/1.1 15-0257511/7/1012K
+0.348730.00.005.86 217.136.******group-office.euPOST /json.php
+HTTP/1.0 16-0257902/9/994K 0.42500.70.095.41
+80.112.******group-office.euGET /themes/Default/css/checker.css
+HTTP/1.1 17-0252490/9/1385W 0.2920700.00.0212.02
+188.188.group-office.euPOST
+/Microsoft-Server-ActiveSync?User=Arno&amp;DeviceId=Appl83835M
+18-0255481/19/582K 1.4221400.90.133.60 62.41.group-office.euPOST
+/json.php HTTP/1.1 19-0198520/107/1125W 5.01200300.00.227.71
+188.188group-office.euPOST
+/Microsoft-Server-ActiveSync?User=Arno&amp;DeviceId=Appl83835M
+20-0255760/13/1232_ 0.71200.00.029.31 80.11group-office.euGET
+/themes/Default/css/checker.css HTTP/1.1 21-0254070/9/1046W
+0.667700.00.015.18 79.175.7group-office.euPOST /json.php HTTP/1.1
+22-0233420/21/960W 0.9488400.00.075.33 188.1.2group-office.euPOST
+/Microsoft-Server-ActiveSync?User=Arno&amp;DeviceId=Appl83835M
+Regards,
+Merijn
+
+Op Woensdag, 15-09-2010 om 9:48 schreef Andreas Brodowski:
+
+Hi Merijn,
+
+in case what you wrote in 2nd paragraph is true, the issue seems to
+be not Z-Push related. It is more httpd / config related. In my
+response I've asked about Proxy Server involved. I would like to
+extend this question a bit more regarding how the Z-Push httpd server
+is being integrated in your network infrastructure. I need to ask you
+this since I did never observe a problem like this on my or other
+systems I've installed Z-Push on.
+
+Best regards
+
+Andreas
+&#160;
+
+-----Urspr&#252;ngliche Nachricht-----
+AN: Andreas Brodowski ; <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>; 
+VON: Merijn Schering 
+GESENDET: Mi 15.09.2010 08:34
+BETREFF: Re: [Z-Push-dev] Lot's of connections to the server
+ANLAGE: inline.txt
+Hi Andreas,
+
+Thank you for your response!
+
+The server is a Debian Etch server with php 5.2.0 and there are no
+special modules or extensions installed. There are about 10 devices
+connected to the server and it seems that it are iphones that cause
+problems. I contacted one of them and he has an Iphone 3G with iOS
+4.0.1 and connects through gprs and wifi when it's available.
+
+The strange thing about the multiple connections that a lot of the
+PID's are not logged in the debug.txt file so it seems that PHP never
+executes on these requests. But apache keeps the connection alive and
+netstat shows the connection in state CLOSE_WAIT. It's not just a
+connection break that causes this because those requests will never
+end and a restart of apache is the only solution.
+
+Best regards,
+
+Merijn&#160;
+
+Op Dinsdag, 14-09-2010 om 21:39 schreef Andreas Brodowski:
+
+ Hi Merijn,
+&#160;
+nice to see you here at the list ;-) Could you please be a bit more
+precise which clients you've identified that keep the connections
+open? Is it a specific brand or&#160;a specific client? You speak about
+Emulator in your thread - emulators sometimes not behave like real
+devices you mention now in your email. Furthermore question is if
+you're using a proxy server within your scenario. How many devices you
+have connected at your system btw?
+&#160;
+In general the ActiveSync Session is a long HTTP Connection. Maximum
+up to 60 minutes if I remember the specs right. In case i.e. a proxy
+server terminates the connection because it ran into a timeout the
+result could be like you explained. Another possibility could be that
+the device looses connection because of the reason that the user is
+going by car through a tunnel / switching GSM Cells. This could result
+in a connection break and maybe your system / provider&#160;keeps socket
+open for a while because of sysctl settings. 
+&#160;
+Well - but first of all lets see if we can bring things together
+prior changing the code. Let's see if there is&#160;a system behind this
+behaviour.
+&#160;
+Best regards
+&#160;
+Andreas
+
+ -----Original Message-----
+FROM: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">mschering at intermesh.nl</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>]ON BEHALF OF Merijn
+Schering
+SENT: Dienstag, 14. September 2010 15:37
+TO: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+SUBJECT: [Z-Push-dev] Lot's of connections to the server
+
+Hi!
+
+Can I get some attention on this forum topic?
+
+<A HREF="http://z-push.sourceforge.net/phpbb/viewtopic.php?f=2&amp;t=891">http://z-push.sourceforge.net/phpbb/viewtopic.php?f=2&amp;t=891</A>
+
+I have some very serious problems with servers reaching the
+MaxClients setting because some phones keep a lot of connections open.
+Netstat shows them as CLOSE_WAIT and Apache mod_status with W (Sending
+reply).
+
+I hope someone can help us!
+
+Best regards,
+Merijn
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20100915/843544bb/attachment.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20100915/843544bb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[Z-Push-dev] Lot's of connections to the server
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[Z-Push-dev] Lot's of connections to the server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

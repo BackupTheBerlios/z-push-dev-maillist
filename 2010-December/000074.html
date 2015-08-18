@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] Critical problem discovered and solution in DiffBackend.php
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-December/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Critical%20problem%20discovered%20and%20solution%20in%0A%20DiffBackend.php&In-Reply-To=%3Cvmime.4cfd1553.4c41.7b206345b554703%40zorg.skn.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000072.html">
+   <LINK REL="Next"  HREF="000075.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] Critical problem discovered and solution in DiffBackend.php</H1>
+    <B>Sebastian Kummer</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Critical%20problem%20discovered%20and%20solution%20in%0A%20DiffBackend.php&In-Reply-To=%3Cvmime.4cfd1553.4c41.7b206345b554703%40zorg.skn.net%3E"
+       TITLE="[Z-Push-dev] Critical problem discovered and solution in DiffBackend.php">s.kummer at zarafabrasil.com.br
+       </A><BR>
+    <I>Mon Dec  6 17:54:43 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000072.html">[Z-Push-dev] Critical problem discovered and solution in	DiffBackend.php
+</A></li>
+        <LI>Next message: <A HREF="000075.html">[Z-Push-dev] Critical problem discovered and solution in DiffBackend.php
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#74">[ date ]</a>
+              <a href="thread.html#74">[ thread ]</a>
+              <a href="subject.html#74">[ subject ]</a>
+              <a href="author.html#74">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Andreas,
+
+&#160;
+
+I&#8217;m really sorry, but I don&#8217;t see the real difference. Only that the implemented compare function is probably not binary safe. 
+
+Anyway, it always returns -1 or +1, which is assured to be understood by usort.
+
+What kind of IDs do you use? Do you have any examples of arrays which break?
+
+&#160;
+
+What we have recently seen, in a totally unrelated project, that some php versions have issues with the missing parenthesis before the ? operator. Have you tried adding these?
+
+&#160;
+
+Could you also tell us who Philip and Ralf are? And what kind of backend you guys are developing?
+
+&#160;
+
+Cheers,
+
+Sebastian
+
+&#160;
+
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">andreas at brodowski.org</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>] Im Auftrag von Andreas Brodowski
+Gesendet: Sonntag, 5. Dezember 2010 16:10
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+Betreff: [Z-Push-dev] Critical problem discovered and solution in DiffBackend.php
+
+
+
+&#160;
+
+Hi everybody,
+
+&#160;
+
+during supporting Philip and Ralf to develop a backend for the groupware they use we discovered a problem in DiffBackend.php file. The function GetDiff calls usort with sorting function RowCmp. In RowCmp it says:
+
+&#160;
+
+return $a[&quot;id&quot;] &lt; $b[&quot;id&quot;] ? 1 : -1;
+
+&#160;
+
+This produces upon return values that usort expect wrong and unpredictable results. Usort expects either 1, -1 or 0 (0=both values are equal) as a result.
+
+&#160;
+
+To return correct values we&#8217;ve changed the function RowCmp the following way and it works by this as expected:
+
+&#160;
+
+return strcmp($a[&quot;id&quot;],$b[&quot;id&quot;]);
+
+&#160;
+
+Best regards
+
+&#160;
+
+Andreas
+
+&#160;
+
+&#160;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20101206/737c7a3e/attachment.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20101206/737c7a3e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000072.html">[Z-Push-dev] Critical problem discovered and solution in	DiffBackend.php
+</A></li>
+	<LI>Next message: <A HREF="000075.html">[Z-Push-dev] Critical problem discovered and solution in DiffBackend.php
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#74">[ date ]</a>
+              <a href="thread.html#74">[ thread ]</a>
+              <a href="subject.html#74">[ subject ]</a>
+              <a href="author.html#74">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

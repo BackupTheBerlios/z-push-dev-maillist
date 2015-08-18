@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] Z-Push 1.5beta1 feedback - Undefined offset: 923205662
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-August/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Z-Push%201.5beta1%20feedback%20-%20Undefined%20offset%3A%20923205662&In-Reply-To=%3CAANLkTi%3DTAMHDssDsLtzhn_kcRsNiHJhKb4oJe9Xy26tw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000045.html">
+   <LINK REL="Next"  HREF="000047.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] Z-Push 1.5beta1 feedback - Undefined offset: 923205662</H1>
+    <B>Holger</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Z-Push%201.5beta1%20feedback%20-%20Undefined%20offset%3A%20923205662&In-Reply-To=%3CAANLkTi%3DTAMHDssDsLtzhn_kcRsNiHJhKb4oJe9Xy26tw%40mail.gmail.com%3E"
+       TITLE="[Z-Push-dev] Z-Push 1.5beta1 feedback - Undefined offset: 923205662">hdecarne at gmail.com
+       </A><BR>
+    <I>Wed Aug 25 22:05:55 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000045.html">[Z-Push-dev] RES: Re:  Z-Push 1.4.1 and 1.5beta1 released
+</A></li>
+        <LI>Next message: <A HREF="000047.html">[Z-Push-dev] RES: Z-Push 1.5beta1 feedback - Undefined offset: 923205662
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+today I have installed Z-Push 1.5beta1 with ICS backend (Zarafa 6.40.2 beta
+2). It looks like that synchronization with my iPhone (iOS4.0.2) is
+generally working. However I noticed the following error backtraces:
+
+08/25/10 22:00:38 [19083] [xxx] Exporter configured successfully. 491
+changes ready to sync.
+08/25/10 22:00:50 [19083] [xxx] ------------------------- ERROR BACKTRACE
+-------------------------
+08/25/10 22:00:50 [19083] [xxx] trace error:
+/.../Microsoft-Server-ActiveSync/backend/ics.php:1708 Undefined offset:
+923205662 (8) - backtrace: 8 steps
+08/25/10 22:00:50 [19083] [xxx] trace:
+1:/.../Microsoft-Server-ActiveSync/backend/ics.php:1284 -
+PHPContentsImportProxy-&gt;_getEmail()
+08/25/10 22:00:50 [19083] [xxx] trace:
+2:/.../Microsoft-Server-ActiveSync/backend/ics.php:1238 -
+PHPContentsImportProxy-&gt;_getMessage()
+08/25/10 22:00:50 [19083] [xxx] trace: 3:: -
+PHPContentsImportProxy-&gt;ImportMessageChange()
+08/25/10 22:00:50 [19083] [xxx] trace:
+4:/.../Microsoft-Server-ActiveSync/backend/ics.php:2067 -
+mapi_exportchanges_synchronize()
+08/25/10 22:00:50 [19083] [xxx] trace:
+5:/.../Microsoft-Server-ActiveSync/backend/ics.php:543 -
+ExportChangesICS-&gt;Synchronize()
+08/25/10 22:00:50 [19083] [xxx] trace:
+6:/.../htdocs/Microsoft-Server-ActiveSync/request.php:519 -
+ImportContentsChangesICS-&gt;Config()
+08/25/10 22:00:50 [19083] [xxx] trace:
+7:/.../Microsoft-Server-ActiveSync/request.php:1722 - HandleSync()
+08/25/10 22:00:50 [19083] [xxx] trace:
+8:/.../Microsoft-Server-ActiveSync/index.php:222 - HandleRequest()
+
+Causing line is:
+
+$attach-&gt;displayname = w2u($attachprops[PR_ATTACH_LONG_FILENAME]);
+
+Looks like this is happening everytime I access an email with attachement
+vor the first time. Also I noticed that the indicated number of changes is
+unlogically high. On second access I can open the mail with attachment.
+
+Best Regards,
+Holger
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20100825/54f90453/attachment.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20100825/54f90453/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000045.html">[Z-Push-dev] RES: Re:  Z-Push 1.4.1 and 1.5beta1 released
+</A></li>
+	<LI>Next message: <A HREF="000047.html">[Z-Push-dev] RES: Z-Push 1.5beta1 feedback - Undefined offset: 923205662
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

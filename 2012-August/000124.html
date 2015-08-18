@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] z-push2: problems synchronizing contacts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20z-push2%3A%20problems%20synchronizing%20contacts&In-Reply-To=%3Czarafa.503e34a8.3243.24fe62f61a2e7ace%40zorg.skn.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000123.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] z-push2: problems synchronizing contacts</H1>
+    <B>Manfred Kutas</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20z-push2%3A%20problems%20synchronizing%20contacts&In-Reply-To=%3Czarafa.503e34a8.3243.24fe62f61a2e7ace%40zorg.skn.net%3E"
+       TITLE="[Z-Push-dev] z-push2: problems synchronizing contacts">m.kutas at zarafabrasil.com.br
+       </A><BR>
+    <I>Wed Aug 29 17:26:32 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000123.html">[Z-Push-dev] z-push2: problems synchronizing contacts
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Heiko,
+
+&#160;
+
+yes, I meant that synckey:
+
+&#160;
+
+&#160;
+
+26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I&#160; &lt;FolderHierarchy:SyncKey&gt;
+26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I&#160; {5117feb5-c114-420c-84ff-4d26ebd442db}1
+26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I&#160; &lt;/FolderHierarchy:SyncKey&gt;
+
+&#160;
+
+Greets, Manfred
+&#160;
+-----Urspr&#252;ngliche Nachricht-----
+Von:Heiko Nardmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">heiko.nardmann at itechnical.de</A>&gt;
+Gesendet:Mo 27.08.2012 11:19
+Betreff:Re: [Z-Push-dev] z-push2: problems synchronizing contacts
+An:Manfred Kutas &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">m.kutas at zarafabrasil.com.br</A>&gt;; 
+CC:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>; 
+Hi Manfred,
+
+what I have tried multiple times is deleting the files within 
+/var/lib/wwwrun/z-push/. But I can of course see whether I can also 
+change the profile on the mobile once.
+
+Do you mean that SynKey is coming from the mobile?
+
+Thanks for the hint concerning the forum - I'll use that, too.
+
+
+Kind regards,
+
+&#160; &#160; Heiko
+
+Am 27.08.2012 16:13, schrieb Manfred Kutas:
+&gt;<i> AW: [Z-Push-dev] z-push2: problems synchronizing contacts
+</I>&gt;<i>
+</I>&gt;<i> Hi Heiko,
+</I>&gt;<i>
+</I>&gt;<i> the devices sends &quot;5117feb5-c114-420c-84ff-4d26ebd442db&quot; SyncKey, 
+</I>&gt;<i> that's why Z-Push looks for. It must have been sent to the device at 
+</I>&gt;<i> some point. Have you tried to re-create the profile on the mobile, 
+</I>&gt;<i> delete the states and sync again?
+</I>&gt;<i>
+</I>&gt;<i> It also would be better if you would post your issue in the Z-Push 
+</I>&gt;<i> forum (<A HREF="http://z-push.sourceforge.net/phpbb">http://z-push.sourceforge.net/phpbb</A>) as the mailing list is 
+</I>&gt;<i> almost inactive.
+</I>&gt;<i>
+</I>&gt;<i> Kind regards, Manfred Kutas
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> &#160; &#160; *Von:* Heiko Nardmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">heiko.nardmann at itechnical.de</A>&gt;
+</I>&gt;<i> &#160; &#160; *Gesendet:* So 26.08.2012 05:48
+</I>&gt;<i> &#160; &#160; *Betreff:* [Z-Push-dev] z-push2: problems synchronizing contacts
+</I>&gt;<i> &#160; &#160; *An:* <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>;
+</I>&gt;<i> &#160; &#160; Hi,
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; I try to export my contacts from my Motorola A780 using z-push 2.
+</I>&gt;<i> &#160; &#160; I get
+</I>&gt;<i> &#160; &#160; a connection to the Apache and also to the z-push system. My
+</I>&gt;<i> &#160; &#160; problem is
+</I>&gt;<i> &#160; &#160; that my mobile shows a communication error after doing some things
+</I>&gt;<i> &#160; &#160; with
+</I>&gt;<i> &#160; &#160; z-push - but I do not see much unusual inside the log file. Maybe
+</I>&gt;<i> &#160; &#160; anyone
+</I>&gt;<i> &#160; &#160; here has an idea by looking at z-push.log? Btw: the error log is
+</I>&gt;<i> &#160; &#160; empty.
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] -------- Start
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [ INFO]
+</I>&gt;<i> &#160; &#160; Version='2.0-1346'
+</I>&gt;<i> &#160; &#160; method='POST' from='88.128.174.103' cmd='FolderSync'
+</I>&gt;<i> &#160; &#160; getUser='nardmann.heiko' devId='MOTOA780b6035dddc17f3fdec3d00573'
+</I>&gt;<i> &#160; &#160; devType='MotA'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] Used timezone
+</I>&gt;<i> &#160; &#160; 'Europe/Amsterdam'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] Including
+</I>&gt;<i> &#160; &#160; backend
+</I>&gt;<i> &#160; &#160; file: '/srv/www/htdocs/z-push2/backend/vcarddir.php'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; Request::ProcessHeaders() ASVersion: 2.0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::CommandNeedsProvisioning(9): true
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;GetState() on file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-devicedata'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] ASDevice data
+</I>&gt;<i> &#160; &#160; loaded for user: 'nardmann.heiko'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] TopCollector():
+</I>&gt;<i> &#160; &#160; Initialized mutexid Resource id #100 and memid Resource id #101.
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] LoopDetection():
+</I>&gt;<i> &#160; &#160; Initialized mutexid Resource id #103 and memid Resource id #104.
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::HierarchyCommand(9): true
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; DeviceManager-&gt;ProvisioningRequired('0') saved device key '-1': false
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::CommandNeedsAuthentication(9): true
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::CommandNeedsPlainInput(9): false
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:SyncKey&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; {5117feb5-c114-420c-84ff-4d26ebd442db}1
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:SyncKey&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; StateManager-&gt;loadHierarchyCache():
+</I>&gt;<i> &#160; &#160; 'MOTOA780b6035dddc17f3fdec3d00573-5117feb5-c114-420c-84ff-4d26ebd442db-hc-1'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;GetState() on file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-5117feb5-c114-420c-84ff-4d26ebd442db-hc-1'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [ INFO]
+</I>&gt;<i> &#160; &#160; StateNotFoundException: FileStateMachine-&gt;GetState(): Could not
+</I>&gt;<i> &#160; &#160; locate
+</I>&gt;<i> &#160; &#160; state
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-5117feb5-c114-420c-84ff-4d26ebd442db-hc-1'
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; - code: 0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ASDevice-&gt;GetHierarchyCache(): HierarchyCache is up - Cached
+</I>&gt;<i> &#160; &#160; objects: 0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:Status&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] O &#160; 9
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:Status&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; LoopDetection-&gt;ProcessLoopDetectionTerminate()
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:42 [ 5362] [nardmann.heiko] [DEBUG] -------- End
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [DEBUG] -------- Start
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [ INFO]
+</I>&gt;<i> &#160; &#160; Version='2.0-1346'
+</I>&gt;<i> &#160; &#160; method='OPTIONS' from='88.128.174.103' cmd=''
+</I>&gt;<i> &#160; &#160; getUser='nardmann.heiko'
+</I>&gt;<i> &#160; &#160; devId='MOTOA780b6035dddc17f3fdec3d00573' devType='MotA'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; NoPostRequestException: Options request - code: 1
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [DEBUG] Including
+</I>&gt;<i> &#160; &#160; backend
+</I>&gt;<i> &#160; &#160; file: '/srv/www/htdocs/z-push2/backend/vcarddir.php'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::GetSupportedProtocolVersions(): 1.0,2.0,2.1,2.5
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::GetSupportedCommands():
+</I>&gt;<i> &#160; &#160; Sync,SendMail,SmartForward,SmartReply,GetAttachment,GetHierarchy,CreateCollection,DeleteCollection,MoveCollection,FolderSync,FolderCreate,FolderDelete,FolderUpdate,MoveItems,GetItemEstimate,MeetingResponse,ResolveRecipients,ValidateCert,Provision,Search,Ping,Notify
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [ INFO] Options request
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:44 [ 5362] [nardmann.heiko] [DEBUG] -------- End
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] -------- Start
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [ INFO]
+</I>&gt;<i> &#160; &#160; Version='2.0-1346'
+</I>&gt;<i> &#160; &#160; method='POST' from='88.128.174.103' cmd='FolderSync'
+</I>&gt;<i> &#160; &#160; getUser='nardmann.heiko' devId='MOTOA780b6035dddc17f3fdec3d00573'
+</I>&gt;<i> &#160; &#160; devType='MotA'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] Used timezone
+</I>&gt;<i> &#160; &#160; 'Europe/Amsterdam'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] Including
+</I>&gt;<i> &#160; &#160; backend
+</I>&gt;<i> &#160; &#160; file: '/srv/www/htdocs/z-push2/backend/vcarddir.php'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; Request::ProcessHeaders() ASVersion: 2.0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::CommandNeedsProvisioning(9): true
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;GetState() on file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-devicedata'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] ASDevice data
+</I>&gt;<i> &#160; &#160; loaded for user: 'nardmann.heiko'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] TopCollector():
+</I>&gt;<i> &#160; &#160; Initialized mutexid Resource id #100 and memid Resource id #101.
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] LoopDetection():
+</I>&gt;<i> &#160; &#160; Initialized mutexid Resource id #103 and memid Resource id #104.
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::HierarchyCommand(9): true
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; DeviceManager-&gt;ProvisioningRequired('0') saved device key '-1': false
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::CommandNeedsAuthentication(9): true
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ZPush::CommandNeedsPlainInput(9): false
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:SyncKey&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] I &#160; &#160;0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:SyncKey&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ASDevice-&gt;GetHierarchyCache(): HierarchyCache is up - Cached
+</I>&gt;<i> &#160; &#160; objects: 0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] I
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] Initializing
+</I>&gt;<i> &#160; &#160; folder
+</I>&gt;<i> &#160; &#160; diff engine
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ExportChangesDiff-&gt;InitializeExporter(): Initializing folder diff
+</I>&gt;<i> &#160; &#160; engine
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; VCDir::GetFolderList()
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; VCDir::StatFolder(root)
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; VCDir::GetFolder(root)
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [ INFO]
+</I>&gt;<i> &#160; &#160; ExportChangesDiff-&gt;InitializeExporter(): Found '1' changes
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; VCDir::GetFolder(root)
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; VCDir::StatFolder(root)
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; VCDir::GetFolder(root)
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] HierarchyCache:
+</I>&gt;<i> &#160; &#160; AddFolder() serverid: root displayname: Contacts
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:Status&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O &#160; 1
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:Status&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:SyncKey&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; {a3c89077-6069-4b90-8caf-220164e17b0a}1
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:SyncKey&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:Changes&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:Count&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O &#160; &#160;1
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:Count&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:Add&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:ServerEntryId&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O &#160; &#160; root
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:ServerEntryId&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:ParentId&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O &#160; &#160; 0
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:ParentId&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:DisplayName&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O Contacts
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:DisplayName&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;FolderHierarchy:Type&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O &#160; &#160; 9
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:Type&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:Add&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:Changes&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; StateManager::UnLinkState(''): saved state
+</I>&gt;<i> &#160; &#160; 'e97a4255-1210-46c0-ba41-883131366dd6' will be deleted.
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;CleanStates(): Deleting file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-e97a4255-1210-46c0-ba41-883131366dd6-1'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;CleanStates(): Deleting file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-e97a4255-1210-46c0-ba41-883131366dd6-hc-1'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; StateManager::linkState(#ASDevice,
+</I>&gt;<i> &#160; &#160; 'a3c89077-6069-4b90-8caf-220164e17b0a','HierarchyCache'): linked
+</I>&gt;<i> &#160; &#160; to uuid
+</I>&gt;<i> &#160; &#160; 'a3c89077-6069-4b90-8caf-220164e17b0a'.
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; ASDevice-&gt;GetHierarchyCache(): HierarchyCache is up - Cached
+</I>&gt;<i> &#160; &#160; objects: 1
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;SetState() written 227 bytes on file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-a3c89077-6069-4b90-8caf-220164e17b0a-hc-1'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;SetState() written 82 bytes on file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-a3c89077-6069-4b90-8caf-220164e17b0a-1'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [WBXML] O
+</I>&gt;<i> &#160; &#160; &lt;/FolderHierarchy:FolderSync&gt;
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; DeviceManager-&gt;Save(): Device data changed
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; FileStateMachine-&gt;SetState() written 624 bytes on file:
+</I>&gt;<i> &#160; &#160; '/var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-devicedata'
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; DeviceManager-&gt;Save(): Device data saved
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG]
+</I>&gt;<i> &#160; &#160; LoopDetection-&gt;ProcessLoopDetectionTerminate()
+</I>&gt;<i> &#160; &#160; 26/08/2012 10:22:45 [ 5362] [nardmann.heiko] [DEBUG] -------- End
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; What looks strange to me is the StateNotFoundException: the
+</I>&gt;<i> &#160; &#160; contents of
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push is (find /var/lib/wwwrun/z-push/ -ls):
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; 569606196 &#160; &#160;4 drwxr-xr-x &#160; 3 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160;4096 Aug 26 10:17
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/
+</I>&gt;<i> &#160; &#160; 569606158 &#160; &#160;4 -rw-r--r-- &#160; 1 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160; &#160;78 Aug 26 10:22
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/users
+</I>&gt;<i> &#160; &#160; 570458192 &#160; &#160;4 drwxr-xr-x &#160; 3 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160;4096 Aug 18 08:26
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/3
+</I>&gt;<i> &#160; &#160; 570458193 &#160; &#160;4 drwxr-xr-x &#160; 2 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160;4096 Aug 26 10:22
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/3/7
+</I>&gt;<i> &#160; &#160; 570458218 &#160; &#160;4 -rw-r--r-- &#160; 1 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160; 624 Aug 26 10:22
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-devicedata
+</I>&gt;<i> &#160; &#160; 570458227 &#160; &#160;4 -rw-r--r-- &#160; 1 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160; 227 Aug 26 10:22
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-a3c89077-6069-4b90-8caf-220164e17b0a-hc-1
+</I>&gt;<i> &#160; &#160; 570458333 &#160; &#160;4 -rw-r--r-- &#160; 1 wwwrun &#160; www &#160; &#160; &#160; &#160; &#160; &#160;82 Aug 26 10:22
+</I>&gt;<i> &#160; &#160; /var/lib/wwwrun/z-push/3/7/MOTOA780b6035dddc17f3fdec3d00573-a3c89077-6069-4b90-8caf-220164e17b0a-1
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; It seems to address the wrong state file; if the file ending on
+</I>&gt;<i> &#160; &#160; &quot;-hc-1&quot;
+</I>&gt;<i> &#160; &#160; is the state file then &quot;a3c89077-...&quot; is present but
+</I>&gt;<i> &#160; &#160; &quot;5117feb5-...&quot; is
+</I>&gt;<i> &#160; &#160; searched for. Is that a/the problem?
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; Kind regards,
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; &#160; &#160; Heiko
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20120829/76a400f5/attachment-0001.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20120829/76a400f5/attachment-0001.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000123.html">[Z-Push-dev] z-push2: problems synchronizing contacts
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

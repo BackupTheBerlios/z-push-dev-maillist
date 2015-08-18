@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] DiffBackend, MoveMessage never called on MoveItem Activesync Cmd
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-June/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20DiffBackend%2C%0A%20MoveMessage%20never%20called%20on%20MoveItem%20Activesync%20Cmd&In-Reply-To=%3Cvmime.4c22f77d.1712.5c86dc6419ef293c%40abrlinux.abrhome.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000032.html">
+   <LINK REL="Next"  HREF="000035.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] DiffBackend, MoveMessage never called on MoveItem Activesync Cmd</H1>
+    <B>Andreas Brodowski</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20DiffBackend%2C%0A%20MoveMessage%20never%20called%20on%20MoveItem%20Activesync%20Cmd&In-Reply-To=%3Cvmime.4c22f77d.1712.5c86dc6419ef293c%40abrlinux.abrhome.lan%3E"
+       TITLE="[Z-Push-dev] DiffBackend, MoveMessage never called on MoveItem Activesync Cmd">andreas at brodowski.org
+       </A><BR>
+    <I>Thu Jun 24 08:13:17 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000032.html">[Z-Push-dev] DiffBackend, MoveMessage never called on MoveItem Activesync Cmd
+</A></li>
+        <LI>Next message: <A HREF="000035.html">[Z-Push-dev] Optimized PHPHierarchyImportProxy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Alain,
+
+in some OS4 Beta I discovered provisioning problems. In case you don't support provisioning in kollab you will not find out about this... In case you change to support provisioning, you should see them. I changed request.php file in my current dev version to fix it (and fix roadsync problems). Please find diff in attachment.
+
+I've send the attached patch already to Sebastian for applying to trunk but didn't hear anything more about it other than Manfred should take care about. 
+
+Best regards
+
+Andreas
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">alain.abbas at libertech.fr</A>
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>]On Behalf Of Alain Abbas
+</I>&gt;<i> Sent: Donnerstag, 24. Juni 2010 07:33
+</I>&gt;<i> To: Andreas Brodowski
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [Z-Push-dev] DiffBackend, MoveMessage never called on
+</I>&gt;<i> MoveItem Activesync Cmd
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi Andreas
+</I>&gt;<i> I will test it very soon (today i think) and will give to you 
+</I>&gt;<i> my feed back
+</I>&gt;<i> Another New : I was testing iphone OS4 and i don t see 
+</I>&gt;<i> problem seems to 
+</I>&gt;<i> synchronize well :-)
+</I>&gt;<i> 
+</I>&gt;<i> Regards
+</I>&gt;<i> Alain
+</I>&gt;<i> 
+</I>&gt;<i> Andreas Brodowski a &#233;crit :
+</I>&gt;<i> &gt; Hi Alain,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I found this last days, too. I've changed the function this way:
+</I>&gt;<i> &gt;     function ImportMessageMove($id, $newfolder) {
+</I>&gt;<i> &gt;         //do nothing if it is a dummy folder
+</I>&gt;<i> &gt;         if ($this-&gt;_folderid == SYNC_FOLDER_TYPE_DUMMY)
+</I>&gt;<i> &gt;             return true;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;         // Update client state
+</I>&gt;<i> &gt;         $change = array();
+</I>&gt;<i> &gt;         $change[&quot;id&quot;] = $id;
+</I>&gt;<i> &gt;         $change[&quot;mod&quot;] = 0; // dummy, will be updated later 
+</I>&gt;<i> if the change succeeds
+</I>&gt;<i> &gt;         $change[&quot;parent&quot;] = $this-&gt;_folderid;
+</I>&gt;<i> &gt;         $change[&quot;flags&quot;] = (isset($message-&gt;read)) ? 
+</I>&gt;<i> $message-&gt;read : 0;
+</I>&gt;<i> &gt;         $this-&gt;updateState(&quot;change&quot;, $change);
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;         return 
+</I>&gt;<i> $this-&gt;_backend-&gt;MoveMessage($this-&gt;_folderid, $id, $newfolder);
+</I>&gt;<i> &gt; 	}
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I did it this way since the diffbackend should be aware of 
+</I>&gt;<i> the change. Until now I didn't find any problem with this 
+</I>&gt;<i> change but it would be fine to get some confirm that I update 
+</I>&gt;<i> the exporter right way.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Best regards
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Andreas
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   
+</I>&gt;<i> &gt;&gt; -----Original Message-----
+</I>&gt;<i> &gt;&gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">alain.abbas at libertech.fr</A>
+</I>&gt;<i> &gt;&gt; [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>]On Behalf Of 
+</I>&gt;<i> Alain Abbas
+</I>&gt;<i> &gt;&gt; Sent: Donnerstag, 24. Juni 2010 07:00
+</I>&gt;<i> &gt;&gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> &gt;&gt; Subject: [Z-Push-dev] DiffBackend, MoveMessage never called 
+</I>&gt;<i> &gt;&gt; on MoveItem
+</I>&gt;<i> &gt;&gt; Activesync Cmd
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; hello
+</I>&gt;<i> &gt;&gt; MoveMessage is never called when a message is moved in the mail .( 
+</I>&gt;<i> &gt;&gt; exemple move a message in another folder)
+</I>&gt;<i> &gt;&gt; I looked the code and
+</I>&gt;<i> &gt;&gt; in DiffBackend
+</I>&gt;<i> &gt;&gt;  function ImportMessageMove($id, $newfolder) {
+</I>&gt;<i> &gt;&gt;         return true;
+</I>&gt;<i> &gt;&gt;     }
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; the function ImportMessageMove just Return true
+</I>&gt;<i> &gt;&gt; it would be :
+</I>&gt;<i> &gt;&gt; function ImportMessageMove($id, $newfolder) {
+</I>&gt;<i> &gt;&gt;         $this-&gt;_backend-&gt;MoveMessage($this-&gt;_folderid, 
+</I>&gt;<i> &gt;&gt; $id,$newfolder);
+</I>&gt;<i> &gt;&gt;         return true;
+</I>&gt;<i> &gt;&gt;     }
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Are there some reason for this function is deseactived ?
+</I>&gt;<i> &gt;&gt; or this is a bug ?
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Regards
+</I>&gt;<i> &gt;&gt; Alain
+</I>&gt;<i> &gt;&gt; _______________________________________________
+</I>&gt;<i> &gt;&gt; Z-push-dev mailing list
+</I>&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">Z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">https://lists.berlios.de/mailman/listinfo/z-push-dev</A>
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Z-push-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">Z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">https://lists.berlios.de/mailman/listinfo/z-push-dev</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: roadsync_and_iphone_os4_provision_fix.diff
+Type: application/octet-stream
+Size: 1028 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20100624/037195b5/attachment.obj">https://lists.berlios.de/pipermail/z-push-dev/attachments/20100624/037195b5/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000032.html">[Z-Push-dev] DiffBackend, MoveMessage never called on MoveItem Activesync Cmd
+</A></li>
+	<LI>Next message: <A HREF="000035.html">[Z-Push-dev] Optimized PHPHierarchyImportProxy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

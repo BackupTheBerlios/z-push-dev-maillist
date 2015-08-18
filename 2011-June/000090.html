@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] Z-Push 1.5.3 final released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Z-Push%201.5.3%20final%20released&In-Reply-To=%3C20110604162923.GA463%40hurricane.linuxnetz.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000089.html">
+   <LINK REL="Next"  HREF="000087.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] Z-Push 1.5.3 final released</H1>
+    <B>Robert Scheck</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20Z-Push%201.5.3%20final%20released&In-Reply-To=%3C20110604162923.GA463%40hurricane.linuxnetz.de%3E"
+       TITLE="[Z-Push-dev] Z-Push 1.5.3 final released">robert at fedoraproject.org
+       </A><BR>
+    <I>Sat Jun  4 18:29:23 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000089.html">[Z-Push-dev] Z-Push 1.5.3 final released
+</A></li>
+        <LI>Next message: <A HREF="000087.html">[Z-Push-dev] Z-Push 1.5.3 final released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#90">[ date ]</a>
+              <a href="thread.html#90">[ thread ]</a>
+              <a href="subject.html#90">[ subject ]</a>
+              <a href="author.html#90">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Sebastian,
+
+On Fri, 03 Jun 2011, Sebastian Kummer wrote:
+&gt;<i> the idea behind is to be aligned with Zarafa standards, where this is
+</I>&gt;<i> already implemented.
+</I>
+I'm sorry, but I think you are wrong. Zarafa releases are now always called
+&quot;zcp-&lt;VERSION&gt;.tar.gz&quot; and the directory inside is &quot;zcp-&lt;VERSION&gt;&quot;. Example
+is: <A HREF="http://download.zarafa.com/community/final/6.40/6.40.8-27223/sourcecode/">http://download.zarafa.com/community/final/6.40/6.40.8-27223/sourcecode/</A>
+
+&gt;<i> Nevertheless, I do understand that and why a uniform link is important
+</I>&gt;<i> for you.
+</I>
+I think you misgot me (and I maybe misgot Christoph), but I am looking for
+a file name of the software archive that is like GNU (and nearly everybody
+else out there) is doing for ages: &lt;NAME&gt;-&lt;VERSION&gt;.&lt;ARCHIVE&gt; - which is
+then containing a directory being named &lt;NAME&gt;-&lt;VERSION&gt;. Note that version
+is the real software version as in 1.0 or 1.5.3, but not contains any VCS/
+SCM information, such as 1.5.3-685.
+
+Having a uniform link like <A HREF="http://z-push.sf.net/latest-stable">http://z-push.sf.net/latest-stable</A> does not work
+out for me at RPM Fusion (for Fedora), because that URL shall always return
+the same archive and is subjected to never change. Once you release a new
+version, the URL would point to another archive that no longer matches the
+checksums etc.
+
+One of the benefits is, that I'm able to simply bump the version inside of
+the spec file and fire a rebuild without the need to lookup the new VCS/SCM
+version at the download page.
+
+Aside of this, it is common practice for ages as well that an Open Source
+upstream not abuses the version number or a part of it by using a dash,
+because normally only the downstream uses the dash: to separate the
+upstream version and it's (local) packaged build number very clearly...
+
+Christoph might want to add something more here, but I generally believe he
+has a similar view, if I did not misgot him.
+
+By the way...that's also something that Zarafa is still doing wrong at
+their official RPM packages, even I pointed out that multiple times in the
+past. RPM release tag is something downstream only and might contain
+upstream's VCS/SCM number as a part of it, but not exclusively as it is
+case now. Nevertheless their upstream tarball has a proper versioning.
+
+&gt;<i> [1] <A HREF="http://community.zarafa.com/pg/blog/read/362/changed-naming-conventions-for-zpush">http://community.zarafa.com/pg/blog/read/362/changed-naming-conventions-for-zpush</A> 
+</I>
+You know that Zarafa didn't really announce the Community Portal so far? I
+just know by accident that this Zarafa Community Portal exists...
+
+
+Greetings,
+  Robert
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 197 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20110604/6a77047b/attachment.pgp">https://lists.berlios.de/pipermail/z-push-dev/attachments/20110604/6a77047b/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000089.html">[Z-Push-dev] Z-Push 1.5.3 final released
+</A></li>
+	<LI>Next message: <A HREF="000087.html">[Z-Push-dev] Z-Push 1.5.3 final released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#90">[ date ]</a>
+              <a href="thread.html#90">[ thread ]</a>
+              <a href="subject.html#90">[ subject ]</a>
+              <a href="author.html#90">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

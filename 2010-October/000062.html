@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] ICS Backend - Duplication of Messages
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20ICS%20Backend%20-%20Duplication%20of%20Messages&In-Reply-To=%3Cvmime.4cb58736.29ba.ae58ee7a50908b96%40abrlinux.abrhome.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000063.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] ICS Backend - Duplication of Messages</H1>
+    <B>Andreas Brodowski</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20ICS%20Backend%20-%20Duplication%20of%20Messages&In-Reply-To=%3Cvmime.4cb58736.29ba.ae58ee7a50908b96%40abrlinux.abrhome.lan%3E"
+       TITLE="[Z-Push-dev] ICS Backend - Duplication of Messages">andreas at brodowski.org
+       </A><BR>
+    <I>Wed Oct 13 12:17:26 CEST 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000063.html">[Z-Push-dev] RES:  ICS Backend - Duplication of Messages
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sebastian, hi Manfred,
+&#160;
+while having a few minutes I tried to investigate the issue regarding message duplication in case both folders (src and dest) are marked for sync. My results of this investigation and steps used are the following:
+1.) Take any message you have on your mobile device and move it from folder (i.e. Inbox) to another folder you keep in sync (i.e. testbla).
+2.) Sync the device with Z-Push
+3.) Find that message in folder you moved it in exists twice.
+&#160;
+The reason for this is the ImportMessageMove in ics Backend and function being used. It just returns true or false but not the new message id. Therefor Z-Push sends just the same value for DestMsgId that is has for SrcMsgId. The question is just why the mapi_folder_copymessage assigns a new message id although the message should be moved according to flags. In case the new message id is a wished behaviour we have to change our way to move an item within Z-Push. In case it is a problem in Zarafa Server it should be fixed in there asap since in case you work with the wrong item (and you don't know which item is the right one in folder) there will be further errors (i.e. during smartforward / smartreply). 
+&#160;
+Would be nice to get an update on this how this issue should be fixed according your opinion. 
+&#160;
+Best regards
+&#160;
+Andreas
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20101013/0df013d5/attachment.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20101013/0df013d5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000063.html">[Z-Push-dev] RES:  ICS Backend - Duplication of Messages
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

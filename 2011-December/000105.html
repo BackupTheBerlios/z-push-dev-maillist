@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] hook for end of synchronization
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2011-December/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20hook%20for%20end%20of%20synchronization&In-Reply-To=%3Czarafa.4ef0c218.4788.664c58442db00434%40zorg.skn.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000104.html">
+   <LINK REL="Next"  HREF="000106.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] hook for end of synchronization</H1>
+    <B>Sebastian Kummer</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20hook%20for%20end%20of%20synchronization&In-Reply-To=%3Czarafa.4ef0c218.4788.664c58442db00434%40zorg.skn.net%3E"
+       TITLE="[Z-Push-dev] hook for end of synchronization">s.kummer at zarafabrasil.com.br
+       </A><BR>
+    <I>Tue Dec 20 18:12:56 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000104.html">[Z-Push-dev] hook for end of synchronization
+</A></li>
+        <LI>Next message: <A HREF="000106.html">[Z-Push-dev] hook for end of synchronization
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Alain,
+
+&#160;
+
+I do not completely understand what you mean.
+
+&#160;
+
+When using the diffbackend there will be always a list of changes to be processed. This is done by comparing two lists of IDs, the ones currently returned by GetMessageList() with the ones from the last synchronization.
+
+On the first sync, the &#8220;last time&#8221; list is just empty, while the output of GetMessageList() represents all messages which are new and should be sent to the device.
+
+&#160;
+
+The individual changes are then processed one-by-one.
+
+&#160;
+
+The diffbackend is always be aware of the state of the sync (DiffState obj).
+
+You could call the backend to do any administrative tasks.. But I do not really understand the use-case for that.
+
+The diffbackend is not aware of the &#8220;end-of-synchronization&#8221;, means when the processor decided to end the request (e.g. 10 (from XX) exported).
+
+&#160;
+
+In Z-Push 2 this would be possible, as there at the end of the request eg. device relevant data is saved.
+
+We plan to add a possibility for the backend to write own data, then you would have a trigger which you could use to perform &#8220;an ending procedure&#8221; .
+
+The only other way I can think of atm is a destructor.
+
+&#160;
+
+Greetings,
+Sebastian Kummer
+
+&#160;
+
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">alain.abbas at libertech.fr</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>] Im Auftrag von ABBAS Alain
+Gesendet: Montag, 12. Dezember 2011 08:00
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+Betreff: [Z-Push-dev] hook for end of synchronization
+
+
+&#160;
+
+Hello&#160;
+
+
+I ve an issue with the first sync when there are too much entries, the backend can t know if this is the end of the sync or not and couldnt make some
+
+
+status jobs
+
+
+&#160;
+
+
+There is a way for the diffbackend do know the state of the sync ?&#160;
+
+
+&#160;
+
+
+Regards
+
+
+&#160;
+
+
+Alain Abbas
+
+Libertech
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20111220/3459d708/attachment.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20111220/3459d708/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winmail.dat
+Type: application/ms-tnef
+Size: 9017 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20111220/3459d708/attachment.bin">https://lists.berlios.de/pipermail/z-push-dev/attachments/20111220/3459d708/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000104.html">[Z-Push-dev] hook for end of synchronization
+</A></li>
+	<LI>Next message: <A HREF="000106.html">[Z-Push-dev] hook for end of synchronization
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

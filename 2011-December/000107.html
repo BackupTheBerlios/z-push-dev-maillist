@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] hook for end of synchronization
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2011-December/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20hook%20for%20end%20of%20synchronization&In-Reply-To=%3Czarafa.4ef2314d.4162.291d6e0e12e8c06e%40zorg.skn.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000106.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] hook for end of synchronization</H1>
+    <B>Sebastian Kummer</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20hook%20for%20end%20of%20synchronization&In-Reply-To=%3Czarafa.4ef2314d.4162.291d6e0e12e8c06e%40zorg.skn.net%3E"
+       TITLE="[Z-Push-dev] hook for end of synchronization">s.kummer at zarafabrasil.com.br
+       </A><BR>
+    <I>Wed Dec 21 20:19:41 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000106.html">[Z-Push-dev] hook for end of synchronization
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#107">[ date ]</a>
+              <a href="thread.html#107">[ thread ]</a>
+              <a href="subject.html#107">[ subject ]</a>
+              <a href="author.html#107">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+&#160;
+
+I understand your optimizations. But still, in a normal sync request GetMessageList should be called only once per folder (during Diffbackend-&gt;Config()).
+
+It would of course be called several times in a row if the synchronization is split up (e.g. 100 items per request) ? so you would have 20 requests/calls to synchronize 2000 contacts.
+
+Could you elaborate that a bit further what is happening?
+
+&#160;
+
+Greetings,
+Sebastian Kummer
+
+&#160;
+
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">alain.abbas at libertech.fr</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>] Im Auftrag von ABBAS Alain
+Gesendet: Mittwoch, 21. Dezember 2011 07:12
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>; Sebastian Kummer
+Betreff: Re: [Z-Push-dev] hook for end of synchronization
+
+
+&#160;
+
+&#160;Hello
+
+
+Kolab stores events and contacts in imaps folder. For optimization reason i check the status of the imap folder and if nothing is new i resend
+
+
+the same list that i stored the last time that somethings moved. It works well in normal state, but at the first sync when i ve got a lot of entry (eg
+
+
+contacts &gt; 2000 entries) z-push seems to call getMessageList in 2 or 3 times and the problem is that i record the state of my folder too early
+
+
+I need to store the state of my imap folder only when the synchro is finished (at the very end of the sync)
+
+
+&#160;
+
+
+&#160;The &quot;trigger which you could use to perform ?an ending procedure? .&quot; should be solve the problem.
+
+
+&#160;
+
+
+Regards
+
+
+Alain Abbas
+
+Libertech
+
+&#160;
+
+
+&#160;
+
+
+-----Original Message-----
+De: &quot;Sebastian Kummer&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">s.kummer at zarafabrasil.com.br</A>&gt;
+Envoy&#233;: 20 d&#233;cembre 2011 17:12:56 UTC
+A: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+Cc: 
+Sujet : Re: [Z-Push-dev] hook for end of synchronization
+
+Hi Alain,
+
+
+&#160;
+
+
+I do not completely understand what you mean.
+
+
+&#160;
+
+
+When using the diffbackend there will be always a list of changes to be processed. This is done by comparing two lists of IDs, the ones currently returned by GetMessageList() with the ones from the last synchronization.
+
+
+On the first sync, the ?last time? list is just empty, while the output of GetMessageList() represents all messages which are new and should be sent to the device.
+
+
+&#160;
+
+
+The individual changes are then processed one-by-one.
+
+
+&#160;
+
+
+The diffbackend is always be aware of the state of the sync (DiffState obj).
+
+
+You could call the backend to do any administrative tasks.. But I do not really understand the use-case for that.
+
+
+The diffbackend is not aware of the ?end-of-synchronization?, means when the processor decided to end the request (e.g. 10 (from XX) exported).
+
+
+&#160;
+
+
+In Z-Push 2 this would be possible, as there at the end of the request eg. device relevant data is saved.
+
+
+We plan to add a possibility for the backend to write own data, then you would have a trigger which you could use to perform ?an ending procedure? .
+
+
+The only other way I can think of atm is a destructor.
+
+
+&#160;
+
+
+Greetings,
+Sebastian Kummer
+
+&#160;
+
+
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">alain.abbas at libertech.fr</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev-bounces at lists.berlios.de</A>] Im Auftrag von ABBAS Alain
+Gesendet: Montag, 12. Dezember 2011 08:00
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>
+Betreff: [Z-Push-dev] hook for end of synchronization
+
+
+&#160;
+
+
+Hello&#160;
+
+
+
+I ve an issue with the first sync when there are too much entries, the backend can t know if this is the end of the sync or not and couldnt make some
+
+
+
+status jobs
+
+
+
+&#160;
+
+
+
+There is a way for the diffbackend do know the state of the sync ?&#160;
+
+
+
+&#160;
+
+
+
+Regards
+
+
+
+&#160;
+
+
+
+Alain Abbas
+
+Libertech
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/z-push-dev/attachments/20111221/aed142c9/attachment.html">https://lists.berlios.de/pipermail/z-push-dev/attachments/20111221/aed142c9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000106.html">[Z-Push-dev] hook for end of synchronization
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#107">[ date ]</a>
+              <a href="thread.html#107">[ thread ]</a>
+              <a href="subject.html#107">[ subject ]</a>
+              <a href="author.html#107">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>

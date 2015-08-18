@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Z-Push-dev] RES:  Z-push and S60 nokia OS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/z-push-dev/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20RES%3A%20%20Z-push%20and%20S60%20nokia%20OS&In-Reply-To=%3C4CC04285.7070308%40libertech.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000068.html">
+   <LINK REL="Next"  HREF="000070.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Z-Push-dev] RES:  Z-push and S60 nokia OS</H1>
+    <B>Alain Abbas</B> 
+    <A HREF="mailto:z-push-dev%40lists.berlios.de?Subject=Re%3A%20%5BZ-Push-dev%5D%20RES%3A%20%20Z-push%20and%20S60%20nokia%20OS&In-Reply-To=%3C4CC04285.7070308%40libertech.fr%3E"
+       TITLE="[Z-Push-dev] RES:  Z-push and S60 nokia OS">alain.abbas at libertech.fr
+       </A><BR>
+    <I>Thu Oct 21 15:39:17 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000068.html">[Z-Push-dev] RES:  Z-push and S60 nokia OS
+</A></li>
+        <LI>Next message: <A HREF="000070.html">[Z-Push-dev] RES:  Z-push and S60 nokia OS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sebastian Kummer a &#233;crit :
+&gt;<i>
+</I>&gt;<i> Hi Alain,
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> the M4E client is really giving everybody a hard time. It has flaws, 
+</I>&gt;<i> much also reported to be present with exchange. If you search for &quot;M4E 
+</I>&gt;<i> system error - stop syncing&quot; or similar you will find many relates.
+</I>&gt;<i>
+</I>&gt;<i> I had cases, that I needed a full hard reset to convince the device to 
+</I>&gt;<i> even connect to the server again.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> I know that this client has major issues with stuff like:
+</I>&gt;<i>
+</I>&gt;<i> - folderids too long (or not in base64)
+</I>&gt;<i>
+</I>&gt;<i> - add/change requests on folders which data was already synced 
+</I>&gt;<i> (foldercache should handle it)
+</I>&gt;<i>
+</I>&gt;<i> - missing flags or not only flags when synching messages (update on 
+</I>&gt;<i> emails)
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> I think that the issue is not in the actual activesync implementation. 
+</I>&gt;<i> I'm quite sure that the M4E client doesn't &quot;like&quot; the data it receives.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Greetings,
+</I>&gt;<i>
+</I>&gt;<i> Sebastian
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>Yes i have hard time with it
+now it s works with just hex in the repertory names i made a sha1 sum of 
+the name and put i in the id
+i noticed that :
+Just Inbox is synced ( the MFe never ask for the other folders
+contacts calendar task must ahave 0 as parentID ( not the case of all 
+others phones)
+i m starting now the tests phone -&gt; server
+
+definitively i hate NOKIA
+
+Regards :-)
+and thanks for your support
+
+&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>     -----Mensagem original-----
+</I>&gt;<i>     *De:* Alain Abbas &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">alain.abbas at libertech.fr</A>&gt;
+</I>&gt;<i>     *Enviado:* Qua 20/10/2010 13:14
+</I>&gt;<i>     *Para:* <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">z-push-dev at lists.berlios.de</A>;
+</I>&gt;<i>     *Assunto:* [Z-Push-dev] Z-push and S60 nokia OS
+</I>&gt;<i>
+</I>&gt;<i>     Hello
+</I>&gt;<i>     after a lot of tests and hard time to understand what happen , i
+</I>&gt;<i>     ve got
+</I>&gt;<i>     some issues with Nokia E series (S60 symbian)
+</I>&gt;<i>
+</I>&gt;<i>     I tested with Z-push 1.4.1 , zpush 1.4.2 , zpush 1.5b1 backend Kolab
+</I>&gt;<i>     and  Standard backend IMAP
+</I>&gt;<i>
+</I>&gt;<i>     In All cases with just Email activated on MFE (Mail For Exchange) .
+</I>&gt;<i>
+</I>&gt;<i>     in a complete Resync
+</I>&gt;<i>
+</I>&gt;<i>     nokia -&gt;  zpush        FolderSync &lt;SyncKey&gt; 0
+</I>&gt;<i>     zpush -&gt; nokia 200/OK    Zpudh sending Folder List the  &lt;FolderSync&gt;
+</I>&gt;<i>     .....  9 folders  
+</I>&gt;<i>     zpush -&gt; nokia 100/CONTINUE
+</I>&gt;<i>     nokia-&gt; zpush
+</I>&gt;<i>        &lt;Synchronize&gt; ....   synckey = 0  FOLDER INBOX
+</I>&gt;<i>     zpush-&gt; nokia
+</I>&gt;<i>        &lt;Synchronize&gt; ....    synkey = abce ....
+</I>&gt;<i>     zpush -&gt; nokia 100/CONTINUE
+</I>&gt;<i>     nokia -&gt; zpush  &lt;synchronize&gt; synkey=abcde Folder INBOX
+</I>&gt;<i>
+</I>&gt;<i>     zpush -&gt; nokia &lt;synchronize&gt; 5 messages
+</I>&gt;<i>
+</I>&gt;<i>     After the Nokia cut  the TCP communication
+</I>&gt;<i>     [ACK]   [FIN, ACK]
+</I>&gt;<i>
+</I>&gt;<i>     On the nokia i ve got the Error &quot;System Error Try later&quot;
+</I>&gt;<i>     if i go to the Email i see my 5 emails
+</I>&gt;<i>     This Occurs with IMAP backend and same with Kolab Backend
+</I>&gt;<i>     At the beginning i believed a bug on my backend but seems more
+</I>&gt;<i>     General .
+</I>&gt;<i>
+</I>&gt;<i>     If i try to synchronize just the Calendar (with Kolab Backend) it
+</I>&gt;<i>     fails
+</I>&gt;<i>     after the FolderSync
+</I>&gt;<i>     Contacts seems to work
+</I>&gt;<i>
+</I>&gt;<i>     I was able to synchronize one time with the E63 after a complete
+</I>&gt;<i>     reset
+</I>&gt;<i>     (i tought to have resolved the problem) i never resync completely
+</I>&gt;<i>     The same Tests on Others phone runs
+</I>&gt;<i>     Even on Nokia N series
+</I>&gt;<i>     I noticed that on the Nokia NSeries the Mfe is Version 2.00 and on E
+</I>&gt;<i>     series Version 3.00
+</I>&gt;<i>
+</I>&gt;<i>     I have complete traces in pcap format if you need it
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     _______________________________________________
+</I>&gt;<i>     Z-push-dev mailing list
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">Z-push-dev at lists.berlios.de</A>
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">https://lists.berlios.de/mailman/listinfo/z-push-dev</A>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Z-push-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">Z-push-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/z-push-dev">https://lists.berlios.de/mailman/listinfo/z-push-dev</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000068.html">[Z-Push-dev] RES:  Z-push and S60 nokia OS
+</A></li>
+	<LI>Next message: <A HREF="000070.html">[Z-Push-dev] RES:  Z-push and S60 nokia OS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/z-push-dev">More information about the Z-push-dev
+mailing list</a><br>
+</body></html>
